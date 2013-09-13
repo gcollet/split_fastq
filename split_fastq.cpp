@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
 	//
 	for (int i = 0; i < nb_parts; i++) {
 		std::stringstream output_file_name;
-		output_file_name << prefix << "_" << i << "." << ext;
+		output_file_name << prefix << "_" << i + 1 << "." << ext;
 		
 		// open/create the output file
 		int fdout = open (output_file_name.str().c_str(), O_RDWR | O_CREAT | O_TRUNC, (mode_t)0600);
