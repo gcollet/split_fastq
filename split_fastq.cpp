@@ -30,6 +30,7 @@
 #include <sys/mman.h>
 #include <iostream>
 #include <string>
+#include <string.h>
 #include <sstream>
 
 int main(int argc, char *argv[])
