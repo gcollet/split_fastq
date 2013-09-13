@@ -3,14 +3,19 @@ split_fastq
 
 This small piece of code splits a fastq file in n fastq files
 
-Because fastq files may be very large files (like 24 GB in my case), we need to cut them in pieces of less than 4 GB in order to store them on a FAT32 formatted disk.
+Because fastq files may be very large files (like 22 GB in my case), we need to cut them in pieces of less than 4 GB in order to store them on a FAT32 formatted disk.
 This is why I created this code.
 
-But cutting 24 GB of data is not so simple if you want to do it quickly, I did it in C, with the mmap functions that let you map an entire file in virtual memory.
-Then I find the cut positions, and then I simply copy memory and let the system do the writing on disk.
+But cutting 22 GB of data is not so simple if you want to do it quickly.
+I did it in C, with the mmap functions that let you map an entire file in virtual memory.
+split_fastq finds the cut positions, and then simply copies memory and lets the system do the writing on disk.
 
-Cutting 24 GB in two files took 5 minutes on my laptop.
+Some performance evaluations :
+5' 30'' to split a 22 Go file in two 11 Go files.
+2' 47'' to split a 11 Go file in two 5,7 Go files.
+2' 27'' to split a 11 Go file in four 2,8 Go files.
+2' 10'' to split a 11 Go file in six 1,9 Go files.
 
-Feel free to use this code ;-)
+Usage: ./split_fastq <fastq_file> <nb_files>
 
 Guillaume Collet.
