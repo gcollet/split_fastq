@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 	std::string ext = fastq_file_name.substr(fastq_file_name.rfind(".") + 1);
 	
 	////////////////////////////////////////////////////////////////////////////
-	// Open the input file
+	// Open and map the input file
 	//
 	
 	// Open input file
@@ -91,7 +91,7 @@ int main(int argc, char *argv[])
 	sub_size [nb_parts - 1] = statbuf.st_size - sub_index[nb_parts - 1];
 
 	////////////////////////////////////////////////////////////////////////////
-	// Open, map, and copy the nb_parts output files
+	// Open, map, and copy the output files
 	//
 	for (int i = 0; i < nb_parts; i++) {
 		std::stringstream output_file_name;
